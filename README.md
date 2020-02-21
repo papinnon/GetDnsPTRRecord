@@ -1,7 +1,8 @@
 # GetDnsPTRRecord
 
-requirement: DNSpython  
-
+```
+requirement: sudo pip install DNSpython  
+```
 python Robot.py/Dns.py [/path/to/ip/files]  
 
 Robot.py 1000个ip时间：  
