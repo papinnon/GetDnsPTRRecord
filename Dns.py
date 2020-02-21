@@ -8,13 +8,14 @@ import sys
 import queue
 
 list = ["114.114.114.114"]
-dnslist=["151.250.94.140"].append(list)
+dnslist=["198.144.226.11","68.109.249.130","198.41.1.1","75.149.23.181" ].append(list)
 debug=0
 def miniGetDnsPtrRecord(ip, timeout=5.0):
     global dnslist
     try:
         addr = reversename.from_address(ip)
         resolver.timeout=timeout
+        resolver.nameservers = dnslist
         out=        resolver.query(addr, "PTR")
     except Exception as e :
         #print(e)
@@ -40,7 +41,7 @@ def thread_cb(timeout ):
     return   
 
 
-def tp_GetDnsPtrRecord(ips=[], n_threads=256,  timeout=5.0):
+def tp_GetDnsPtrRecord(ips=[], n_threads=1048,  timeout=5.0):
     for i in ips:
         q.put(i)
     threads=[]

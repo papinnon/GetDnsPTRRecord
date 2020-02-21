@@ -21,6 +21,7 @@ def GetDnsPtrRecord(ip_list=[],outfile = sys.stdout, result=None, lock=None,dnsl
     #        name , alias, addresslist = socket.gethostbyaddr(i)
             addr = reversename.from_address(i)
             resolver.timeout = 1
+            resolver.nameservers = dnslist
             out = resolver.query(addr,"PTR")
         except Exception as e :
             #print('',file=outfile)
